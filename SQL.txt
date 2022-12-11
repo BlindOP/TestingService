@@ -1,0 +1,6 @@
+SELECT TC.Tel, SUM(TS.Price)
+  FROM TCustomers as TC
+  INNER JOIN TSales as TS on TS.idC = TC.idC
+  WHERE TS.DateS between '2022-04-01' and '2022-04-30'
+  group by TC.idC, TC.Tel
+  HAVING SUM(TS.Price) > 500
